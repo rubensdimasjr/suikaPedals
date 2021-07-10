@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* Style Nav */
+li, a, h1{
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: #25242a;
+}
+
+header{
+    display: flex;
+    justify-content: flex-end; /* Empurra todos para direita */
+    align-items: center;
+    padding: 30px 3%; /* topo, inferior, esquerda e direita  */
+    position: relative;
+}
+
+.logo{
+    cursor: pointer;
+    color: #25242a;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: auto; /* colocando logo na esquerda */ 
+}
+
+.nav_links{
+    list-style: none;
+}
+
+.sociais{
+    padding: 7px;
+}
+
+.nav_links li{
+    display: inline-block; /* lado a lado */
+    padding: 0px 10px;
+}
+
+.nav_links li a{  /* cada item individual */
+    transition: all 0.3s ease 0s;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.pg-atual{
+    border-bottom: 1px solid #25242a;
+    padding-bottom: 2px;
+}
+
+/* Menu Mobile */
+#btn-mobile{
+    display: none;
+}
+
+/* Style GRID */
+.grid-container{ 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap:10px;
+    padding: 3%;
+    max-width: 960px;
+    margin: 0 auto 10px;
+}
+
+.grid-item{
+    position: relative;
+}
+
+.grid-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay de Imagens */
+.image_overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    /* alinhamento */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* efeitos */
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.image_overlay > *{ /* pegando todos seus filhos */
+    transform: translateY(20px); /* empurrando 20px para baixo */
+    transition: transform 0.25s;
+}
+
+.image_overlay:hover > * {
+    transform: translateY(0);
+}
+
+.image_overlay:hover{
+    opacity: 1;
+}
+
+.image_title{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.image_description{
+    font-size: 1.25em;
+    margin-top: 0.25em;
+}
+
+/* Imagem Background - Pedais */
+.container-img{
+    height: 100vh;
+    width: 100%;
+    background-image: url(../imagens/pedal1.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+/* Páginas Sobre */
+.container{ 
+    margin:3% auto;
+    max-width: 95vw;
+    display: flex;
+    color: #25242a;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sombra {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+  }
+
+.row1{
+    width: 60%;
+}
+
+.row2{
+    width: 40%;
+    line-height:1.5;
+}
+
+.text-title{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container iframe{
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Style Contato */ 
+.container img{
+    width: 100%;
+}
+
+.col{
+    width: 50%;
+}
+
+.btn-job{
+    padding: 2rem;
+    margin-top: 2.5rem;
+    background-color: #25242a;
+    color:#fff;
+    border: none;
+}
+
+/* FOOTER */
+.footer{
+    font-family: 'Montserrat', sans-serif;
+    margin-top:6rem;
+    margin-bottom:6rem;
+    width: 100%;
+    text-align: center;
+}
+
+.footer p{
+    font-size: 14px;
+    margin-top: 2.5%;
+}
+
+.footer a{
+    text-decoration: underline;
+}
+
+.footer .row i{
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+@media (max-width:768px){ /* Para Tablets */
+    header{
+        padding: 10px 5%;
+    }
+    #btn-mobile{
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+
+    .hamburguer{
+        color: #25242a;
+        width: 30px;
+        border-top:2px solid;
+    }
+
+    .hamburguer::after, .hamburguer::before{
+        content:'';
+        display: block;
+        width: 30px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+
+    #nav.active .hamburguer{
+       border-top: transparent;
+    }
+
+    #nav.active .hamburguer::before{
+        transform: rotate(135deg);
+    }
+
+    #nav.active .hamburguer::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+    .nav_links{ /* Menu */
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 100%;
+        height: 0px;
+        z-index: 2;
+        top: 70px;
+        right: 0px;
+        background: #fff;
+        visibility: hidden;
+        overflow-y: hidden;
+        padding-top: 25vh;
+    }
+
+    #nav.active .nav_links{
+        height: calc(100vh - 70px);
+        visibility: visible; 
+    }
+
+    .pg-atual{
+        border-bottom: 1px solid #fff;
+        padding-bottom: 2px;
+    }
+
+    .nav_links li{
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    .active-corpo{
+        overflow: hidden;
+    }
+
+    .conj-sociais{
+        position: fixed;
+        bottom:0px;
+        left: 0;
+        right: 0;
+        padding-bottom: 1rem;
+    }
+
+    .image_overlay{
+        text-align: center;
+    }
+
+    .row{
+        flex-direction: column;
+    }
+
+    .footer p{
+        font-size: 1em;
+        margin-top: 2.5%;
+    }
+}
+
+@media (max-width:414px){ /* SmartPhones*/
+    .grid-container{
+        grid-template-columns: 1fr;
+    }
+
+    .container{
+        max-width: 90vw;
+        flex-direction: column;
+    }
+
+    .row1{
+        width: 100%;
+    }
+
+    .row2{
+        width: 100%;
+    }
+
+}
