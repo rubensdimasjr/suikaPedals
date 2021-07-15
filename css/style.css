@@ -116,13 +116,6 @@ header{
 }
 
 /* Imagem Background - Pedais */
-.container-img{
-    height: 100vh;
-    width: 100%;
-    background-image: url(../imagens/pedal1.jpg);
-    background-size: cover;
-    position: relative;
-}
 
 /* Páginas Sobre */
 .container{ 
